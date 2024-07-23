@@ -23,6 +23,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import com.ezylang.evalex.Expression;
 import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import org.junit.jupiter.api.Test;
 
 class OperatorTest {
@@ -83,7 +84,7 @@ class OperatorTest {
   @InfixOperator(precedence = OPERATOR_PRECEDENCE_MULTIPLICATIVE)
   private static class CorrectInfixOperator extends DummyAnnotationOperator {}
 
-  private static class DummyAnnotationOperator extends AbstractOperator {
+  private static class DummyAnnotationOperator extends AbstractOperator implements Serializable {
     @Override
     public EvaluationValue evaluate(
         Expression expression, Token operatorToken, EvaluationValue... operands) {

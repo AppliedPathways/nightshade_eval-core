@@ -20,10 +20,11 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** The base 10 logarithm of a value */
 @FunctionParameter(name = "value", nonZero = true, nonNegative = true)
-public class Log10Function extends AbstractFunction {
+public class Log10Function extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

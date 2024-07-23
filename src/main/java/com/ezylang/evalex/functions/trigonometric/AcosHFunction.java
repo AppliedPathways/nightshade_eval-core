@@ -21,10 +21,11 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** Returns the hyperbolic arc-cosine. */
 @FunctionParameter(name = "value")
-public class AcosHFunction extends AbstractFunction {
+public class AcosHFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues)

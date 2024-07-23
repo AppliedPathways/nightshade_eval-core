@@ -26,7 +26,7 @@ As an example, we can look at the boolean "GREATER" operator:
 
 ```java
 @InfixOperator(precedence = OPERATOR_PRECEDENCE_COMPARISON)
-public class InfixGreaterOperator extends AbstractOperator {
+public class InfixGreaterOperator extends AbstractOperator implements Serializable {
 
   @Override
   public EvaluationValue evaluate(
@@ -82,7 +82,7 @@ Note that currently only infix operators allow lazy evaluation. The "AND" operat
 
 ```java
 @InfixOperator(precedence = OPERATOR_PRECEDENCE_AND, operandsLazy = true)
-public class InfixAndOperator extends AbstractOperator {
+public class InfixAndOperator extends AbstractOperator implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

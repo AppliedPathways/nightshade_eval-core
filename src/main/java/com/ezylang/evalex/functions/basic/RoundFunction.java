@@ -20,6 +20,7 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /**
  * Rounds the given value to the specified scale, using the {@link java.math.MathContext} of the
@@ -27,7 +28,7 @@ import com.ezylang.evalex.parser.Token;
  */
 @FunctionParameter(name = "value")
 @FunctionParameter(name = "scale")
-public class RoundFunction extends AbstractFunction {
+public class RoundFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

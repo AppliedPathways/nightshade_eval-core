@@ -20,10 +20,11 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** Returns the arc hyperbolic cotangent. */
 @FunctionParameter(name = "value")
-public class AcotHFunction extends AbstractFunction {
+public class AcotHFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

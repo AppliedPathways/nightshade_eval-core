@@ -21,6 +21,7 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /**
  * Returns the given string with all leading and trailing space removed.
@@ -28,7 +29,7 @@ import com.ezylang.evalex.parser.Token;
  * @author LeonardoSoaresDev
  */
 @FunctionParameter(name = "string")
-public class StringTrimFunction extends AbstractFunction {
+public class StringTrimFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues)

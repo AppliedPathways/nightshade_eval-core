@@ -61,7 +61,7 @@ class TrigonometricFunctionsTest extends BaseEvaluationTest {
       value = {
         "ACOSH(1) : 0",
         "ACOSH(2) : 1.3169578969248166",
-        "ACOSH(3) : 1.762747174039086",
+        "ACOSH(3) : 1.7627471740390859",
       })
   void testAcosH(String expression, String expectedResult)
       throws EvaluationException, ParseException {

@@ -21,6 +21,7 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -44,7 +45,7 @@ import java.util.stream.IntStream;
  */
 @FunctionParameter(name = "format")
 @FunctionParameter(name = "arguments", isVarArg = true)
-public class StringFormatFunction extends AbstractFunction {
+public class StringFormatFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

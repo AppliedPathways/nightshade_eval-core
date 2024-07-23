@@ -20,13 +20,14 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 
 /** Square root function, uses the standard {@link BigDecimal#sqrt(MathContext)} implementation. */
 @FunctionParameter(name = "value", nonNegative = true)
-public class SqrtFunction extends AbstractFunction {
+public class SqrtFunction extends AbstractFunction implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

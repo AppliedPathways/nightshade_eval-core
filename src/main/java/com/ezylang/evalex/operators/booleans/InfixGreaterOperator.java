@@ -22,10 +22,11 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.operators.AbstractOperator;
 import com.ezylang.evalex.operators.InfixOperator;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** Greater of two values. */
 @InfixOperator(precedence = OPERATOR_PRECEDENCE_COMPARISON)
-public class InfixGreaterOperator extends AbstractOperator {
+public class InfixGreaterOperator extends AbstractOperator implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

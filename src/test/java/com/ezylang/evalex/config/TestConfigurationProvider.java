@@ -23,6 +23,7 @@ import com.ezylang.evalex.operators.AbstractOperator;
 import com.ezylang.evalex.operators.PostfixOperator;
 import com.ezylang.evalex.operators.PrefixOperator;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.ZoneId;
 import java.util.Locale;
@@ -63,7 +64,7 @@ public class TestConfigurationProvider {
   }
 
   @PrefixOperator(leftAssociative = false)
-  public static class PrefixPlusPlusOperator extends AbstractOperator {
+  public static class PrefixPlusPlusOperator extends AbstractOperator implements Serializable {
     @Override
     public EvaluationValue evaluate(
         Expression expression, Token operatorToken, EvaluationValue... operands) {
@@ -74,7 +75,7 @@ public class TestConfigurationProvider {
   }
 
   @PostfixOperator()
-  public static class PostfixPlusPlusOperator extends AbstractOperator {
+  public static class PostfixPlusPlusOperator extends AbstractOperator implements Serializable {
     @Override
     public EvaluationValue evaluate(
         Expression expression, Token operatorToken, EvaluationValue... operands) {
@@ -85,7 +86,7 @@ public class TestConfigurationProvider {
   }
 
   @PostfixOperator(leftAssociative = false)
-  public static class PostfixQuestionOperator extends AbstractOperator {
+  public static class PostfixQuestionOperator extends AbstractOperator implements Serializable {
     @Override
     public EvaluationValue evaluate(
         Expression expression, Token operatorToken, EvaluationValue... operands) {

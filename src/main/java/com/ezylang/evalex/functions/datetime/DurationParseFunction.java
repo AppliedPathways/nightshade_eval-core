@@ -20,6 +20,7 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.time.Duration;
 
 /**
@@ -27,7 +28,7 @@ import java.time.Duration;
  * parses 2 days, 3 hours and 4 minutes.
  */
 @FunctionParameter(name = "value")
-public class DurationParseFunction extends AbstractFunction {
+public class DurationParseFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

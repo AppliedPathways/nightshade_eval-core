@@ -21,6 +21,7 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -37,7 +38,7 @@ import java.util.TimeZone;
  * configured zone ID is used.
  */
 @FunctionParameter(name = "values", isVarArg = true, nonNegative = true)
-public class DateTimeNewFunction extends AbstractFunction {
+public class DateTimeNewFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues)

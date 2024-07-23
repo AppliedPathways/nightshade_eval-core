@@ -20,11 +20,12 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** Returns the angle of atan2 (in radians). */
 @FunctionParameter(name = "y")
 @FunctionParameter(name = "x")
-public class Atan2RFunction extends AbstractFunction {
+public class Atan2RFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

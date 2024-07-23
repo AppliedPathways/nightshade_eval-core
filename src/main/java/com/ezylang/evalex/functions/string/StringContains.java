@@ -20,11 +20,12 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** Returns true if the string contains the substring (case-insensitive). */
 @FunctionParameter(name = "string")
 @FunctionParameter(name = "substring")
-public class StringContains extends AbstractFunction {
+public class StringContains extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

@@ -24,11 +24,12 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /** Returns the arc-sine (in radians). */
 @FunctionParameter(name = "value")
-public class AsinRFunction extends AbstractFunction {
+public class AsinRFunction extends AbstractFunction implements Serializable {
 
   private static final BigDecimal MINUS_ONE = valueOf(-1);
 

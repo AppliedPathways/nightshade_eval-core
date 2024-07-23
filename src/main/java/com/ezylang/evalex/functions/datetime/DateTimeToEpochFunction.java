@@ -20,10 +20,11 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** Function to convert a DATE_TIME value to milliseconds in the epoch of 1970-01-01T00:00:00Z. */
 @FunctionParameter(name = "value")
-public class DateTimeToEpochFunction extends AbstractFunction {
+public class DateTimeToEpochFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

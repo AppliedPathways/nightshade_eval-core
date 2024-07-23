@@ -19,6 +19,7 @@ import com.ezylang.evalex.Expression;
 import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.Arrays;
@@ -30,7 +31,7 @@ import java.util.Arrays;
  */
 @FunctionParameter(name = "firstValue")
 @FunctionParameter(name = "additionalValues", isVarArg = true)
-public class AverageFunction extends AbstractMinMaxFunction {
+public class AverageFunction extends AbstractMinMaxFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

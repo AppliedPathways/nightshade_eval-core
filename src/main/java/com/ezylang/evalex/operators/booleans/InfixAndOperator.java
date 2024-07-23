@@ -23,10 +23,11 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.operators.AbstractOperator;
 import com.ezylang.evalex.operators.InfixOperator;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** Boolean AND of two values. */
 @InfixOperator(precedence = OPERATOR_PRECEDENCE_AND, operandsLazy = true)
-public class InfixAndOperator extends AbstractOperator {
+public class InfixAndOperator extends AbstractOperator implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

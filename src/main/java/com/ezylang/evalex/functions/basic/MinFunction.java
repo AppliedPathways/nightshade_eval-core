@@ -19,12 +19,13 @@ import com.ezylang.evalex.Expression;
 import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /** Returns the minimum value of all parameters. */
 @FunctionParameter(name = "firstValue")
 @FunctionParameter(name = "value", isVarArg = true)
-public class MinFunction extends AbstractMinMaxFunction {
+public class MinFunction extends AbstractMinMaxFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

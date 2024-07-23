@@ -17,6 +17,7 @@ package com.ezylang.evalex.functions.datetime;
 
 import com.ezylang.evalex.EvaluationException;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.time.DateTimeException;
 import java.time.ZoneId;
 import lombok.AccessLevel;
@@ -24,7 +25,7 @@ import lombok.NoArgsConstructor;
 
 /** Validates and converts a zone ID. */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ZoneIdConverter {
+public class ZoneIdConverter implements Serializable {
 
   /**
    * Converts a zone ID string to a {@link ZoneId}. Throws an {@link EvaluationException} if

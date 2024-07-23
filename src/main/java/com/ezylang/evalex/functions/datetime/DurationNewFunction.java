@@ -20,6 +20,7 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.time.Duration;
 
 /**
@@ -29,7 +30,7 @@ import java.time.Duration;
  */
 @FunctionParameter(name = "days")
 @FunctionParameter(name = "parameters", isVarArg = true)
-public class DurationNewFunction extends AbstractFunction {
+public class DurationNewFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

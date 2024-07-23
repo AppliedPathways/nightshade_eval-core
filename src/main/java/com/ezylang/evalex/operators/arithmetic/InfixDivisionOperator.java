@@ -23,11 +23,12 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.operators.AbstractOperator;
 import com.ezylang.evalex.operators.InfixOperator;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /** Division of two numbers. */
 @InfixOperator(precedence = OPERATOR_PRECEDENCE_MULTIPLICATIVE)
-public class InfixDivisionOperator extends AbstractOperator {
+public class InfixDivisionOperator extends AbstractOperator implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

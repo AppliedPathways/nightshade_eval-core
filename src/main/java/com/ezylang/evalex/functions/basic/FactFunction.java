@@ -20,11 +20,12 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /** Factorial function, calculates the factorial of a base value. */
 @FunctionParameter(name = "base")
-public class FactFunction extends AbstractFunction {
+public class FactFunction extends AbstractFunction implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

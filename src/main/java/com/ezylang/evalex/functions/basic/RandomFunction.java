@@ -19,10 +19,11 @@ import com.ezylang.evalex.Expression;
 import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.security.SecureRandom;
 
 /** Random function produces a random value between 0 and 1. */
-public class RandomFunction extends AbstractFunction {
+public class RandomFunction extends AbstractFunction implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

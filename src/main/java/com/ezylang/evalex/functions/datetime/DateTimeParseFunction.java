@@ -23,6 +23,7 @@ import com.ezylang.evalex.data.conversion.DateTimeConverter;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -40,7 +41,7 @@ import java.util.List;
  */
 @FunctionParameter(name = "value")
 @FunctionParameter(name = "parameters", isVarArg = true)
-public class DateTimeParseFunction extends AbstractFunction {
+public class DateTimeParseFunction extends AbstractFunction implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

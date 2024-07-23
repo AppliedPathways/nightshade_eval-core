@@ -21,6 +21,7 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /**
  * Conditional evaluation function. If parameter <code>condition</code> is <code>true</code>, the
@@ -31,7 +32,7 @@ import com.ezylang.evalex.parser.Token;
 @FunctionParameter(name = "condition")
 @FunctionParameter(name = "resultIfTrue", isLazy = true)
 @FunctionParameter(name = "resultIfFalse", isLazy = true)
-public class IfFunction extends AbstractFunction {
+public class IfFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues)

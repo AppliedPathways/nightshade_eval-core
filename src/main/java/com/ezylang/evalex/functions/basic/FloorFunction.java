@@ -20,11 +20,12 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.math.RoundingMode;
 
 /** Rounds the given value to an integer using the rounding mode {@link RoundingMode#FLOOR} */
 @FunctionParameter(name = "value")
-public class FloorFunction extends AbstractFunction {
+public class FloorFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

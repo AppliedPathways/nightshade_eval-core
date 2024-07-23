@@ -20,10 +20,11 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** Absolute (non-negative) value. */
 @FunctionParameter(name = "value")
-public class AbsFunction extends AbstractFunction {
+public class AbsFunction extends AbstractFunction implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

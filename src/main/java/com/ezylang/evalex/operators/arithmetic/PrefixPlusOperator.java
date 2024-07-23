@@ -21,10 +21,11 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.operators.AbstractOperator;
 import com.ezylang.evalex.operators.PrefixOperator;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** Unary prefix plus. */
 @PrefixOperator(leftAssociative = false)
-public class PrefixPlusOperator extends AbstractOperator {
+public class PrefixPlusOperator extends AbstractOperator implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

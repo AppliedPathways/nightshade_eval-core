@@ -20,12 +20,13 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /**
  * Converts an angle measured in radians to an approximately equivalent angle measured in degrees.
  */
 @FunctionParameter(name = "radians")
-public class DegFunction extends AbstractFunction {
+public class DegFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

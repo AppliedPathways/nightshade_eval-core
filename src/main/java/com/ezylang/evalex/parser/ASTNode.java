@@ -15,6 +15,7 @@
 */
 package com.ezylang.evalex.parser;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,7 +36,7 @@ import lombok.Value;
  * <p><a href="https://vanya.jp.net/vtree/">Online JSON to Tree Diagram Converter</a>
  */
 @Value
-public class ASTNode {
+public class ASTNode implements Serializable {
 
   /** The children od the tree. */
   List<ASTNode> parameters;

@@ -21,6 +21,7 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /**
  * A function that evaluates one value (or expression) against a list of values, and returns the
@@ -62,7 +63,7 @@ import com.ezylang.evalex.parser.Token;
 @FunctionParameter(name = "value1")
 @FunctionParameter(name = "result1", isLazy = true)
 @FunctionParameter(name = "additionalValues", isLazy = true, isVarArg = true)
-public class SwitchFunction extends AbstractFunction {
+public class SwitchFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues)

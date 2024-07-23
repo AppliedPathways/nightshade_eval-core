@@ -4,14 +4,21 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.ezylang</groupId>
-  <artifactId>evalex-nightshade</artifactId>
-  <version>3.3.0</version>
+  <artifactId>EvalEx</artifactId>
+  <version>3.4.0-SNAPSHOT</version>
 
-  <name>EvalEx-Nightshade</name>
+  <name>EvalEx</name>
 
-  <description>
-    Customized version of the EvalEx expression evaluation library with serialization capabilities
+  <description>EvalEx is a handy expression evaluator for Java, that allows to evaluate
+    expressions.
   </description>
+
+  <url>https://github.com/ezylang/EvalEx</url>
+
+  <organization>
+    <name>Udo Klimaschewski</name>
+    <url>https://github.com/ezylang/EvalEx</url>
+  </organization>
 
   <licenses>
     <license>
@@ -20,16 +27,32 @@
     </license>
   </licenses>
 
+  <developers>
+    <developer>
+      <name>Udo Klimaschewski</name>
+      <organizationUrl>https://github.com/uklimaschewski</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:ezylang/EvalEx.git</connection>
+    <developerConnection>scm:git:git@github.com:ezylang/EvalEx.git</developerConnection>
+    <url>https://github.com/ezylang/EvalEx</url>
+  </scm>
+
+  <issueManagement>
+    <system>github</system>
+    <url>https://github.com/ezylang/EvalEx/issues</url>
+  </issueManagement>
+
   <distributionManagement>
     <repository>
-      <id>nexus</id>
-      <name>Releases</name>
-      <url>http://nexus02.ap.dev.w1.applied:8081/repository/maven-releases/</url>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
     <snapshotRepository>
-      <id>nexus</id>
-      <name>Snapshot</name>
-      <url>http://nexus02.ap.dev.w1.applied:8081/repository/maven-snapshots/</url>
+      <id>ossrh</id>
+      <url>https://s01.ss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
 
@@ -170,4 +193,84 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <!-- publish to maven central -->
+      <id>publish</id>
+      <build>
+        <plugins>
+          <plugin>
+            <!-- 1. create source jar -->
+            <artifactId>maven-source-plugin</artifactId>
+            <version>3.0.1</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <!-- 2. create javadoc jar -->
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.0.0-M1</version>
+            <configuration>
+              <doclint>none</doclint>
+              <detectJavaApiLink>false</detectJavaApiLink>
+            </configuration>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <!-- 3. sign artifacts -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <configuration>
+                  <gpgArguments>
+                    <arg>--pinentry-mode</arg>
+                    <arg>loopback</arg>
+                  </gpgArguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <!-- 4. automate release from nexus staging repository -->
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.8</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>ossrh</serverId>
+              <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
+          </plugin>
+
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

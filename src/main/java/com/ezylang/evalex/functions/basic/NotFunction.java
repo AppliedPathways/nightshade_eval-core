@@ -20,10 +20,11 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** Boolean negation function. */
 @FunctionParameter(name = "value")
-public class NotFunction extends AbstractFunction {
+public class NotFunction extends AbstractFunction implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

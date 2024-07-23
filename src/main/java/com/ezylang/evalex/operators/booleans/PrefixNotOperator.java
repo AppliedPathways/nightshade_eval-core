@@ -20,10 +20,11 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.operators.AbstractOperator;
 import com.ezylang.evalex.operators.PrefixOperator;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /** Boolean negation of value. */
 @PrefixOperator
-public class PrefixNotOperator extends AbstractOperator {
+public class PrefixNotOperator extends AbstractOperator implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

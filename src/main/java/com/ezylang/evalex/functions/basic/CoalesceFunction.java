@@ -20,13 +20,14 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 
 /**
  * Returns the first non-null parameter, or {@link EvaluationValue#NULL_VALUE} if all parameters are
  * null.
  */
 @FunctionParameter(name = "value", isVarArg = true)
-public class CoalesceFunction extends AbstractFunction {
+public class CoalesceFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

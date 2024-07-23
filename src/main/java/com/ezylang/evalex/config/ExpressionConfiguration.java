@@ -28,6 +28,7 @@ import com.ezylang.evalex.functions.trigonometric.*;
 import com.ezylang.evalex.operators.OperatorIfc;
 import com.ezylang.evalex.operators.arithmetic.*;
 import com.ezylang.evalex.operators.booleans.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
@@ -61,7 +62,7 @@ import lombok.Getter;
  */
 @Builder(toBuilder = true)
 @Getter
-public class ExpressionConfiguration {
+public class ExpressionConfiguration implements Serializable {
 
   /** The standard set constants for EvalEx. */
   public static final Map<String, EvaluationValue> StandardConstants =

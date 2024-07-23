@@ -23,11 +23,12 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /** Returns the arc-sine (in degrees). */
 @FunctionParameter(name = "value")
-public class AsinFunction extends AbstractFunction {
+public class AsinFunction extends AbstractFunction implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

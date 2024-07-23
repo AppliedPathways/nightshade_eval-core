@@ -19,6 +19,7 @@ import com.ezylang.evalex.Expression;
 import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.time.Instant;
 
 /**
@@ -36,7 +37,7 @@ import java.time.Instant;
  *
  * @author oswaldobapvicjr
  */
-public class DateTimeNowFunction extends AbstractFunction {
+public class DateTimeNowFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

@@ -25,6 +25,7 @@ import com.ezylang.evalex.operators.InfixOperator;
 import com.ezylang.evalex.operators.PostfixOperator;
 import com.ezylang.evalex.operators.PrefixOperator;
 import com.ezylang.evalex.parser.Token.TokenType;
+import java.io.Serializable;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -58,7 +59,7 @@ class TokenizerLiteralOperatorsTest extends BaseParserTest {
   }
 
   @InfixOperator(precedence = OPERATOR_PRECEDENCE_AND)
-  static class AndOperator extends AbstractOperator {
+  static class AndOperator extends AbstractOperator implements Serializable {
     @Override
     public EvaluationValue evaluate(
         Expression expression, Token operatorToken, EvaluationValue... operands) {
@@ -68,7 +69,7 @@ class TokenizerLiteralOperatorsTest extends BaseParserTest {
   }
 
   @InfixOperator(precedence = OPERATOR_PRECEDENCE_OR)
-  static class OrOperator extends AbstractOperator {
+  static class OrOperator extends AbstractOperator implements Serializable {
     @Override
     public EvaluationValue evaluate(
         Expression expression, Token operatorToken, EvaluationValue... operands) {
@@ -78,7 +79,7 @@ class TokenizerLiteralOperatorsTest extends BaseParserTest {
   }
 
   @PrefixOperator(leftAssociative = false)
-  static class NotOperator extends AbstractOperator {
+  static class NotOperator extends AbstractOperator implements Serializable {
     @Override
     public EvaluationValue evaluate(
         Expression expression, Token operatorToken, EvaluationValue... operands) {
@@ -87,7 +88,7 @@ class TokenizerLiteralOperatorsTest extends BaseParserTest {
   }
 
   @PostfixOperator()
-  static class DeniedOperator extends AbstractOperator {
+  static class DeniedOperator extends AbstractOperator implements Serializable {
     @Override
     public EvaluationValue evaluate(
         Expression expression, Token operatorToken, EvaluationValue... operands) {

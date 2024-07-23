@@ -20,12 +20,13 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.functions.AbstractFunction;
 import com.ezylang.evalex.functions.FunctionParameter;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Duration;
 
 /** Converts the given milliseconds to a DURATION value. */
 @FunctionParameter(name = "value")
-public class DurationFromMillisFunction extends AbstractFunction {
+public class DurationFromMillisFunction extends AbstractFunction implements Serializable {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token functionToken, EvaluationValue... parameterValues) {

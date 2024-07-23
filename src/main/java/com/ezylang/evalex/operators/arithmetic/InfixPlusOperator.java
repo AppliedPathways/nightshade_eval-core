@@ -22,13 +22,14 @@ import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.operators.AbstractOperator;
 import com.ezylang.evalex.operators.InfixOperator;
 import com.ezylang.evalex.parser.Token;
+import java.io.Serializable;
 import java.time.Duration;
 
 /**
  * Addition of numbers and strings. If one operand is a string, a string concatenation is performed.
  */
 @InfixOperator(precedence = OPERATOR_PRECEDENCE_ADDITIVE)
-public class InfixPlusOperator extends AbstractOperator {
+public class InfixPlusOperator extends AbstractOperator implements Serializable {
 
   @Override
   public EvaluationValue evaluate(

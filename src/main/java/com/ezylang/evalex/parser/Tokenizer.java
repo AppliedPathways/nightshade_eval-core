@@ -23,6 +23,7 @@ import com.ezylang.evalex.config.OperatorDictionaryIfc;
 import com.ezylang.evalex.functions.FunctionIfc;
 import com.ezylang.evalex.operators.OperatorIfc;
 import com.ezylang.evalex.parser.Token.TokenType;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,7 @@ import java.util.List;
  * The tokenizer is responsible to parse a string and return a list of tokens. The order of tokens
  * will follow the infix expression notation, skipping any blank characters.
  */
-public class Tokenizer {
+public class Tokenizer implements Serializable {
 
   private final String expressionString;
 

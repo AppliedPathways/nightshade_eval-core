@@ -15,13 +15,14 @@
 */
 package com.ezylang.evalex.functions;
 
+import java.io.Serializable;
 import lombok.Builder;
 import lombok.Value;
 
 /** Definition of a function parameter. */
 @Value
 @Builder
-public class FunctionParameterDefinition {
+public class FunctionParameterDefinition implements Serializable {
 
   /** Name of the parameter, useful for error messages etc. */
   String name;
