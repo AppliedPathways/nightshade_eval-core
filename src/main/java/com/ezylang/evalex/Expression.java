@@ -67,6 +67,21 @@ public class Expression {
   }
 
   /**
+   * Creates a new expression with a custom configuration using a pre-parsed expression. The
+   * original expression string is passed in to avoid reverse engineering the string from the AST
+   *
+   * @param expressionString A string holding an expression.
+   */
+  public Expression(
+      String expressionString, ASTNode abstractSyntaxTree, ExpressionConfiguration configuration) {
+    this.expressionString = expressionString;
+    this.abstractSyntaxTree = abstractSyntaxTree;
+    this.configuration = configuration;
+    this.dataAccessor = configuration.getDataAccessorSupplier().get();
+    this.constants.putAll(configuration.getDefaultConstants());
+  }
+
+  /**
    * Creates a copy with the same expression string, configuration and syntax tree from an existing
    * expression. The existing expression will be parsed to populate the syntax tree.
    *

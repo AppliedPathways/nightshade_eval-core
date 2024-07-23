@@ -47,6 +47,21 @@ class ExpressionTest {
   }
 
   @Test
+  void testExpressionDefaultsWithAST() throws ParseException {
+    String exprString = "a+b";
+    Expression orig = new Expression(exprString);
+    ASTNode exprAst = orig.getAbstractSyntaxTree();
+
+    Expression expression =
+        new Expression(exprString, exprAst, ExpressionConfiguration.defaultConfiguration());
+
+    assertThat(expression.getExpressionString()).isEqualTo(exprString);
+    assertThat(expression.getConfiguration().getMathContext())
+        .isEqualTo(ExpressionConfiguration.DEFAULT_MATH_CONTEXT);
+    assertThat(expression.getAbstractSyntaxTree()).isEqualTo(exprAst);
+  }
+
+  @Test
   void testValidateOK() throws ParseException {
     new Expression("1+1").validate();
   }
