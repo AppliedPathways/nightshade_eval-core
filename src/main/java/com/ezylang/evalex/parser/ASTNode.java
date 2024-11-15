@@ -49,6 +49,11 @@ public class ASTNode implements Serializable {
     this.parameters = Arrays.asList(parameters);
   }
 
+  public ASTNode(Token token, List<ASTNode> parameters) {
+    this.token = token;
+    this.parameters = parameters;
+  }
+
   /**
    * Produces a JSON string representation of this node ad all its children.
    *

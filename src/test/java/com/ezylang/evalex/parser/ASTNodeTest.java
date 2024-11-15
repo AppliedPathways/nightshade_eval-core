@@ -21,6 +21,7 @@ import com.ezylang.evalex.functions.basic.MinFunction;
 import com.ezylang.evalex.operators.arithmetic.InfixPlusOperator;
 import com.ezylang.evalex.operators.arithmetic.PrefixMinusOperator;
 import com.ezylang.evalex.parser.Token.TokenType;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class ASTNodeTest {
@@ -59,6 +60,28 @@ class ASTNodeTest {
     Token token = new Token(1, "+", TokenType.FUNCTION, new MinFunction());
     ASTNode node =
         new ASTNode(token, new ASTNode(variable), new ASTNode(variable), new ASTNode(variable));
+
+    assertThat(node.toJSON())
+        .isEqualTo(
+            "{\"type\":\"FUNCTION\",\"value\":\"+\",\"children\":[{\"type\":\"VARIABLE_OR_CONSTANT\",\"value\":\"variable\"},{\"type\":\"VARIABLE_OR_CONSTANT\",\"value\":\"variable\"},{\"type\":\"VARIABLE_OR_CONSTANT\",\"value\":\"variable\"}]}");
+  }
+
+  @Test
+  void testJSONInfixList() {
+    Token token = new Token(1, "+", TokenType.INFIX_OPERATOR, new InfixPlusOperator());
+    ASTNode node = new ASTNode(token, List.of(new ASTNode(variable), new ASTNode(variable)));
+
+    assertThat(node.toJSON())
+        .isEqualTo(
+            "{\"type\":\"INFIX_OPERATOR\",\"value\":\"+\",\"children\":[{\"type\":\"VARIABLE_OR_CONSTANT\",\"value\":\"variable\"},{\"type\":\"VARIABLE_OR_CONSTANT\",\"value\":\"variable\"}]}");
+  }
+
+  @Test
+  void testJSONFunctionList() {
+    Token token = new Token(1, "+", TokenType.FUNCTION, new MinFunction());
+    ASTNode node =
+        new ASTNode(
+            token, List.of(new ASTNode(variable), new ASTNode(variable), new ASTNode(variable)));
 
     assertThat(node.toJSON())
         .isEqualTo(
